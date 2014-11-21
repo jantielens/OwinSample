@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Owin.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,13 @@ namespace OwinSample
     {
         static void Main(string[] args)
         {
+            string baseUrl = "http://*:5000";
+            using (WebApp.Start<Startup>(baseUrl))
+            {
+                Console.WriteLine("Press Enter to quit.");
+                Console.ReadKey();
+
+            }
         }
     }
 }
